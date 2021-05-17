@@ -23,7 +23,7 @@ def get_dict_value(input_dir):
     dict_val = fill_range('a','y',input_dir/"train_short_audio",dict_val)
     return dict_val
 
-{'acafly': 0,
+BIRD_CODE={'acafly': 0,
  'acowoo': 1,
  'aldfly': 2,
  'ameavo': 3,
