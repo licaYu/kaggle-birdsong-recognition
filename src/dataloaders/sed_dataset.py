@@ -32,7 +32,7 @@ class SedDataset(Dataset):
         self.background_audio_dir = background_audio_dir
         has_background = False
         if self.background_audio_dir is not None:
-            for bk in background_audio_dir.glob('**/*.wav'):
+            for bk in background_audio_dir.glob('**/*.ogg'):   #('**/*.wav')
                 self.data.append({
                     "filename": bk
                 })
@@ -43,7 +43,7 @@ class SedDataset(Dataset):
         self.length = len(self.data)
     
     def get_label(self, dataset, idx):
-        return dataset.data[idx]["ebird_code"]
+        return dataset.data[idx]["primary_label"]  # ["ebird_code"] 
 
     def __len__(self):
         return self.length
@@ -55,18 +55,18 @@ class SedDataset(Dataset):
     def get_audio(self, idx):
         item = self.data[idx]
         filename = item["filename"]
-        if "ebird_code" in item:
-            primary_label = item["ebird_code"]
-
+        if "primary_label" in item:
+            #primary_label = item["ebird_code"]
+            primary_label = item["primary_label"]
             all_labels = [primary_label]
             for ln in item["secondary_labels"]:
-                if ln in self.inv_ebird_label:
-                    all_labels.append(self.inv_ebird_label[ln])
+                #if ln in self.inv_ebird_label:
+                all_labels.append(secondary_labels)  #append(self.inv_ebird_label[ln])
 
             if type(self.root_dir) is dict:
-                file_dir = self.root_dir[primary_label[0]]/f"{primary_label}"/f"{filename.replace('.mp3','.wav')}"
-            else:
-                file_dir = self.root_dir/f"{primary_label}"/f"{filename.replace('.mp3','.wav')}"
+                file_dir = self.root_dir[primary_label[0]]/f"{primary_label}"/f"{filename)}"  #filename.replace('.mp3','.wav') 新的竞赛都是.ogg格式的音频
+            else: 
+                file_dir = self.root_dir/f"{primary_label}"/f"{filename.}"  #filename.replace('.mp3','.wav')
         else:
             primary_label = None
             all_labels = []
