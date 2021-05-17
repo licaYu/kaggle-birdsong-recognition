@@ -9,13 +9,13 @@ from dataloaders.imbalanced_dataset_sampler import ImbalancedDatasetSampler
 
 class SedDataset(Dataset):
     def __init__( self,
-            root_dir, csv_dir, period, bird_code, inv_ebird_label, isTraining,num_test_samples, transform=None, background_audio_dir=None):
+            root_dir, csv_dir, period, bird_code, isTraining,num_test_samples, transform=None, background_audio_dir=None): #inv_ebird_label, 
 
         self.root_dir = root_dir
         self.transform = transform
         self.period = period
         self.bird_code = bird_code
-        self.inv_ebird_label = inv_ebird_label
+        #self.inv_ebird_label = inv_ebird_label
         self.isTraining = isTraining
         self.num_test_samples = num_test_samples
         
