@@ -64,9 +64,9 @@ class SedDataset(Dataset):
                 all_labels.append(secondary_labels)  #append(self.inv_ebird_label[ln])
 
             if type(self.root_dir) is dict:
-                file_dir = self.root_dir[primary_label[0]]/f"{primary_label}"/f"{filename)}"  #filename.replace('.mp3','.wav') 新的竞赛都是.ogg格式的音频
+                file_dir = self.root_dir[primary_label[0]]/f"{primary_label}"/f"{filename}"  #filename.replace('.mp3','.wav') 新的竞赛都是.ogg格式的音频
             else: 
-                file_dir = self.root_dir/f"{primary_label}"/f"{filename.}"  #filename.replace('.mp3','.wav')
+                file_dir = self.root_dir/f"{primary_label}"/f"{filename}"  #filename.replace('.mp3','.wav')
         else:
             primary_label = None
             all_labels = []
