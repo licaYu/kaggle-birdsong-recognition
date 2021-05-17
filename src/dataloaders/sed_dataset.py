@@ -26,7 +26,7 @@ class SedDataset(Dataset):
         
         df = pd.read_csv(csv_dir)
         df.secondary_labels = df.secondary_labels.apply(eval)
-        self.data = list(df[["filename", "primary_label ", "secondary_labels"]].to_dict('index').values()) #df[["filename", "ebird_code", "secondary_labels"]
+        self.data = list(df[["filename", "primary_label", "secondary_labels"]].to_dict('index').values()) #df[["filename", "ebird_code", "secondary_labels"]
         del df
         
         self.background_audio_dir = background_audio_dir
