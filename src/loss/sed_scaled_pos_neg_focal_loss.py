@@ -23,6 +23,8 @@ class SedScaledPosNegFocalLoss(nn.Module):
 
         # Sigmoid has already been applied in the model
         y_pred = torch.clamp(y_pred, min=EPSILON_FP16, max=1.0-EPSILON_FP16)
+        print('y_pred.shape', y_pred.shape)
+        print('bs,s,o',bs,s,o )
         y_pred = y_pred.reshape(bs*s,o)
         y_true = y_true.reshape(bs*s,o)
         y_sec_true = y_sec_true.reshape(bs*s,o)
