@@ -1,6 +1,6 @@
 from pathlib import Path
 import torch
-from config_params.configs import get_dict_value, BIRD_CODE, INV_EBIRD_LABEL
+from config_params.configs import get_dict_value, BIRD_CODE
 import os
 
 class Parameters(object):
@@ -53,7 +53,7 @@ class Parameters(object):
             "csv_dir": Path(f"fold_{self.fold}_train.csv"),
             "period": self.PERIOD,
             "bird_code": BIRD_CODE,
-            "inv_ebird_label":INV_EBIRD_LABEL,
+           # "inv_ebird_label":INV_EBIRD_LABEL,
             "isTraining": True,
             "num_test_samples": 1,
         }
@@ -63,7 +63,7 @@ class Parameters(object):
             "csv_dir": Path(f"fold_{self.fold}_test.csv"),
             "period": self.PERIOD,
             "bird_code": BIRD_CODE,
-            "inv_ebird_label":INV_EBIRD_LABEL,
+           # "inv_ebird_label":INV_EBIRD_LABEL,
             "background_audio_dir": Path("background/data_ssw"),
             "isTraining": False,
             "num_test_samples": 2,
@@ -75,7 +75,7 @@ class Parameters(object):
             "background_audio_dir":  Path("background/data_ssw"),
             "period": self.PERIOD,
             "bird_code": BIRD_CODE,
-            "inv_ebird_label":INV_EBIRD_LABEL,
+           # "inv_ebird_label":INV_EBIRD_LABEL,
             "isTraining": False,
             "num_test_samples": 2,
         }
