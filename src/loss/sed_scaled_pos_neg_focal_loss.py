@@ -4,6 +4,7 @@ import torch.nn.functional as F
 
 EPSILON_FP16 = 1e-5
 
+
 class SedScaledPosNegFocalLoss(nn.Module):
     def __init__(self, gamma=0.0, alpha_1=1.0, alpha_0=1.0, secondary_factor=0.1):
         super().__init__()
