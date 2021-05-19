@@ -239,7 +239,6 @@ class BaseEngine(object):
         self.model.train()
         x, y = self.prepare_batch(batch, mode = 'train')
         y_pred = self.model(x)
-        print("y_pred:   ",y_pred)
         loss, dict_loss = self.loss_fn(y_pred, y)
         self.loss_backpass(loss)
         
