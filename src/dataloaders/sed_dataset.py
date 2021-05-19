@@ -67,7 +67,6 @@ class SedDataset(Dataset):
                 file_dir = self.root_dir[primary_label[0]]/f"{primary_label}"/f"{filename}"  #filename.replace('.mp3','.wav') 新的竞赛都是.ogg格式的音频
             else: 
                 file_dir = self.root_dir/f"{primary_label}"/f"{filename}"  #filename.replace('.mp3','.wav')
-            print('file_dir:', file_dir)
         else:
             primary_label = None
             all_labels = []
@@ -88,9 +87,6 @@ class SedDataset(Dataset):
     def convert_labels_to_coded(self, num_images, labels):
         coded_labels = np.zeros((num_images,len(self.bird_code)))
         for index, temp_label in enumerate(labels):
-            
-            print(' index, temp_label',  index, temp_label)
-            
             label_index = self.bird_code[temp_label]
             coded_labels[:,label_index] = 1
         return torch.from_numpy(coded_labels).float()
